@@ -33,6 +33,7 @@
           .then(data => {
             console.log(data)
             this.allPosts = data
+            this.allPosts.reverse()
           })
           .catch(error => {
             console.log(error);
