@@ -40,10 +40,10 @@ exports.getOne = (req, res, next) => {
 };
 exports.modifyPost = (req, res, next) => {
   const postObject = req.file ? {
-    ...JSON.parse(req.body.post),
+    post: req.body.post,
     image: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
   } : {
-    ...req.body
+    post: req.body.post,
   };
   Post.updateOne({
       _id: req.params.id
