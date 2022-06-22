@@ -14,6 +14,7 @@
         api: import.meta.env.VITE_API,
         userId: JSON.parse(localStorage.getItem('headers')).userId,
         token: JSON.parse(localStorage.getItem('headers')).token,
+        isAdmin: JSON.parse(localStorage.getItem('headers')).isAdmin,
         user: {},
         image: '',
         message: this.postData.post
@@ -153,11 +154,11 @@
         <div class="d-flex justify-content-between">
           <div class="mb-2 mt-3 d-flex gap-2">
             <div class="d-flex gap-1">
-              <button type="button" class="btn btn-danger  ms-auto" v-if="userId === postData.userId||isAdmin === true"
+              <button type="button" class="btn btn-danger  ms-auto" v-if="userId === postData.userId || isAdmin"
                 @click="postData.edit = true">Modifier</button>
             </div>
             <div class="d-flex gap-1">
-              <button type="button" class="btn btn-danger ms-auto" v-if="userId === postData.userId||isAdmin === true"
+              <button type="button" class="btn btn-danger ms-auto" v-if="userId === postData.userId || isAdmin"
                 @click="deleteOnePost()">Supprimer</button>
             </div>
           </div>
